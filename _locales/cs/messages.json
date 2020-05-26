@@ -1,0 +1,6 @@
+{
+   "description": {
+      "description": "Popis rozšíření v manifest.json.",
+      "message": "Přidávat nová slova do slovníku a budou občas zobrazeny jako karty."
+   }
+}

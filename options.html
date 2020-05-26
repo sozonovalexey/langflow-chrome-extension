@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+    <link rel="icon" href="images/icons/icon16.png" type="image/png">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="content.css" type="text/css">
+    <link rel="stylesheet" href="options.css" type="text/css">
+    <script src="libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="card.js" type="text/javascript"></script>
+    <script src="options.js" type="text/javascript"></script>
+</head>
+<body class="bg-white">
+
+    <nav class="bg-white border-b border-primary absolute w-full top-0 left-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="https://langflow.ru/" target="_blank" class="text-custom-logo text-lg" style="font-weight: normal">
+                            <img src="http://langflow.dd/themes/default/assets/images/logo.png" style="max-width: 18px;display: inline-block;vertical-align: text-top;" /> Lang<span style="font-weight: bold">Flow</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="ml-4 flex items-center md:ml-6">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary pt-16">
+        <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 flex">
+            <h1 class="text-3xl font-bold leading-tight text-gray-900 w-full">
+                Settings
+            </h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full bg-white">
+            <section class="cards mb-3">
+                <div class="font-bold text-gray-900 mb-8 text-xl">Cards</div>
+                <div class="toggle mb-8">
+                    <input type="checkbox" id="showNativeCards">
+                    <label for="showNativeCards"></label>
+                </div>
+
+                <div class="mb-8">
+                    <div class="caption font-bold">Collection</div>
+                    <div id="collections">
+                        <div class="checkbox">
+                            <input type="checkbox" id="collection-0" class="js-collection" name="collections[]" checked="checked" value="0">
+                            <label for="collection-0">Избранное</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="selectInterval" class="rangeWrapper mb-8">
+                    <span class="caption font-bold">Interval between cards</span><span class="countWrapper"><span class="count"></span> min</span>
+                    <input type="range" min="1" max="60" step="1" value="1">
+                </div>
+                <div id="selectDuration" class="rangeWrapper mb-8">
+                    <span class="caption font-bold">Card duration</span><span class="countWrapper"><span class="count"></span> sec</span>
+                    <input type="range" min="1" max="20" step="1" value="1">
+                </div>
+                <a href="javascript:;" id="showTestCard" class="border border-custom-eucalyptus hover:border-custom-forest inline-block leading-10 no-underline text-center focus:outline-none bg-custom-eucalyptus hover:bg-custom-forest text-white uppercase h-10 px-4 font-bold rounded text-sm">Show test card</a>
+            </section>
+            <hr class="my-8">
+            <section class="notifications">
+                <div class="font-bold text-gray-900 mb-8 text-xl">Notifications</div>
+                <div class="toggle">
+                    <input type="checkbox" id="showNotificationCards">
+                    <label for="showNotificationCards"></label>
+                </div>
+                <br>
+                <a href="javascript:;" id="showTestNotification" class="border border-custom-eucalyptus hover:border-custom-forest inline-block mt-8 leading-10 no-underline text-center focus:outline-none bg-custom-eucalyptus hover:bg-custom-forest text-white uppercase h-10 px-6 font-bold rounded text-sm">Show test notification</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

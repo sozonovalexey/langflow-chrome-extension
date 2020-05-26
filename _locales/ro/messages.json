@@ -1,0 +1,6 @@
+{
+   "description": {
+      "description": "Descrierea de extensie în manifest.json.",
+      "message": "Adăuga cuvinte noi în dicționar și ei vor fi afișate ocazional, ca și cărți."
+   }
+}

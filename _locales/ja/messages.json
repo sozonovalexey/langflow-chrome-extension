@@ -1,0 +1,6 @@
+{
+   "description": {
+      "description": "manifest.jsonをで拡張機能の説明。",
+      "message": "辞書に新しい単語を追加し、彼らは時折カードとして表示されます。"
+   }
+}

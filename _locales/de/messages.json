@@ -1,0 +1,6 @@
+{
+   "description": {
+      "description": "Beschreibung der Erweiterung in manifest.json.",
+      "message": "Hinzufügen neuer Wörter in das Wörterbuch, und sie werden gelegentlich als Karten dargestellt werden."
+   }
+}

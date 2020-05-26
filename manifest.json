@@ -1,0 +1,39 @@
+{
+   "author": "Sozonov Alexey",
+   "background": {
+      "persistent": true,
+      "scripts": [ "libraries/jquery.min.js", "card.js","background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "images/default_icons/icon19.png",
+         "38": "images/default_icons/icon38.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "LangFlow"
+   },
+   "content_scripts": [ {
+      "css": [ "content.css" ],
+      "js": [ "card.js", "content.js" ],
+      "matches": [ "*://*/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://yastatic.net https://mc.yandex.ru; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "icons": {
+      "128": "images/icons/icon128.png",
+      "16": "images/icons/icon16.png",
+      "32": "images/icons/icon32.png",
+      "48": "images/icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5+qGJzwN4fJnbr5MdQtuN7G53mr+P8S1MPLYQEvT8VeehyGyb9Ie3Vt7fQJyJNFAEuh1QGpS3AExVOfpUT+enSebrthiC1HDdtrL8jcxGiz5p1njd3BpT+7BOpRmBCJWql/dLMqXtR5gu3uy0sRMf/TLyPlIGF2sKbbJsbyKMnFYHBzW4EColWhasdad1d12dqSoxCwF2PtNKZE5zv6R4m3aVMzmH2EAy72Epc7NdE3HO09gH+PcoMwWRG4p86LgVUKAW99iPbSVn246Pp/g9qYWbqUdTmHAZUdeKJSCWj2MeaxVN6zgUV10hyfxfRapmr0kPUGJesDiGQIDAQAB",
+   "manifest_version": 2,
+   "name": "LangFlow - Learn & Manage Your Vocabulary.",
+   "offline_enabled": false,
+   "options_page": "options.html",
+   "permissions": [ "tabs", "notifications", "unlimitedStorage", "tts", "*://*/*" ],
+   "short_name": "LangFlow",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0",
+   "web_accessible_resources": [ "images/*" ]
+}

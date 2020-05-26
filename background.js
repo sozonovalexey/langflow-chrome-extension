@@ -4,7 +4,7 @@ let intervalIdShowing;
 let timeoutIdNotification;
 let intervalTime;
 let isMac = navigator.userAgent.indexOf("Mac") >= 0;
-let dev = true;
+let dev = false;
 
 // Chrome version in format: [59, 0, 3071, 115]. From major to minor.
 let chromeVersion = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\s/)[2].split(".").map(Number);

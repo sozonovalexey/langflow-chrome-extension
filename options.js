@@ -12,7 +12,7 @@
         this.$showTestNotofication = $('#showTestNotification');
         this.$collections = $('#collections');
         this.$collection = $('.js-collection');
-        this.collections = [0, 1];
+        this.collections = [0];
 
         this.init();
         this.initFormEvents();
@@ -73,9 +73,10 @@
     Options.prototype.addCollections = function () {
         let self = this;
         $.get('https://langflow.ru/api/v1/collections', {apiKey: this.apiKey}, function (data) {
-            if (typeof data.collections !== undefined && data.collections.length) {
-                $.each(data.collections, function (index, collection) {
-                    self.$collections.append(`<div class="checkbox">
+            if (typeof data.collections !== undefined) {
+                if (data.collections.my) {
+                    $.each(data.collections.my, function (index, collection) {
+                        self.$collections.append(`<div class="checkbox">
                             <input type="checkbox" 
                                    id="collection-${collection.id}"
                                    class="js-collection"
@@ -84,7 +85,23 @@
                                    value="${collection.id}">
                             <label for="collection-${collection.id}">${collection.name}</label>
                         </div>`);
-                });
+                    });
+                }
+
+                if (data.collections.public) {
+                    self.$collections.append(`<div class="caption font-bold" style="margin-top: 13px;">Public collections</div>`);
+                    $.each(data.collections.public, function (index, collection) {
+                        self.$collections.append(`<div class="checkbox">
+                            <input type="checkbox" 
+                                   id="collection-${collection.id}"
+                                   class="js-collection"
+                                   name="collections[]" 
+                                   ${self.collections.indexOf(collection.id) > -1 ? 'checked' : ''}
+                                   value="${collection.id}">
+                            <label for="collection-${collection.id}">${collection.name}</label>
+                        </div>`);
+                    });
+                }
             }
         });
     };

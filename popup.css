@@ -76,6 +76,7 @@ a, button {
     color: #757575;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: transparent;
+    margin-right: 0;
 }
 
 .secondary:hover, .secondary:focus {
@@ -157,4 +158,19 @@ label {
 
 .form-group {
     margin-bottom: 1.5rem;
+}
+
+#dnd {
+    margin: 0;
+    float: right;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    background: url("/images/do-not-disturb.png") center top no-repeat;
+}
+
+#dnd.active {
+    background: url("/images/do-not-disturb.png") center bottom no-repeat;
 }

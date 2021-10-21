@@ -103,6 +103,36 @@ function showWord() {
     });
 }
 
+//
+// Events
+//
+
+/**
+ * Listener will be activated when user stops showing word cards.
+ */
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        if (request.type === 'stopInterval') {
+            clearInterval(intervalIdShowing);
+        }
+    }
+);
+
+/**
+ * Listener will be activated when user starts showing word cards.
+ */
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        if (request.type === 'startInterval') {
+            let switchState = JSON.parse(localStorage.getItem('switchState'));
+
+            if (switchState) {
+                intervalIdShowing = setInterval(showWord, intervalTime);
+            }
+        }
+    }
+);
+
 /**
  * Listener will be activated when user makes different kind of changes of settings.
  */

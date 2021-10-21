@@ -4,6 +4,7 @@
         this.apiKey = '';
         this.$loginForm = $('.popup-login');
         this.$settingsForm = $('.popup-settings');
+        this.$switchButton = $('#dnd');
         this.init();
         this.initFormEvents();
     };
@@ -17,6 +18,13 @@
         else {
             this.$loginForm.removeClass('hidden');
             this.$settingsForm.addClass('hidden');
+        }
+
+        if (JSON.parse(localStorage.getItem('switchState'))) {
+            this.$switchButton.addClass('active');
+        }
+        else {
+            this.$switchButton.removeClass('active');
         }
     };
 
@@ -67,6 +75,33 @@
 
         $(document).on('click', '.js-sign-out', function() {
             self.onSignOut();
+        });
+
+        /**
+         * Turns on or turns off extension.
+         */
+        $(document).on('click', '#dnd', function() {
+            let switchState = JSON.parse(localStorage.getItem('switchState'));
+
+            if (switchState) {
+                switchState = false;
+                localStorage.setItem('switchState', JSON.stringify(switchState));
+
+                // Change color icon to icon with color to indicate state of extension.
+                self.$switchButton.addClass('active');
+
+                chrome.runtime.sendMessage({type: 'stopInterval'});
+            } else {
+                switchState = true;
+                localStorage.setItem('switchState', JSON.stringify(switchState));
+
+                // Change color icon to icon without color to indicate state of extension.
+                self.$switchButton.removeClass('active');
+
+                chrome.runtime.sendMessage({type: 'startInterval'});
+            }
+
+            window.close();
         });
     };
 
